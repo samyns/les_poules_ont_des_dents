@@ -1,9 +1,112 @@
-body{
-  background: aqua;
-  &::after{
-    content: "";
-    background: red;
-    width: 100%;
-    height: 100%;
+body {
+  background: #e4eaea;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  overflow: hidden;
+
+}
+:root {
+  --multiplier: 0.21; /* Vous pouvez ajuster cette valeur selon vos besoins pour l'axe x */
+}
+#critère3{
+  padding: 0 23.214vw;
+  & .etoiles{
+    cursor: auto;
   }
 }
+.critere {
+
+  position: relative;
+  border-radius: 20px;
+  width: 40vw;
+  height: 17vw;
+  top: calc(50vh - 15vw);
+  margin: 0 2.29vw 2.29vw 1.527vw;
+  flex-grow: 1;
+  flex-basis: calc(100% / 3);
+  background: bisque;
+  min-width: 100px;
+  display: flex;
+  flex-direction: row;
+  align-items: end;
+  justify-content: center;
+  & container{
+    position: absolute;
+    width: 100%;
+    height: 5vw;
+    margin-bottom:  2.29vw;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+  }
+  & h1 {
+    top: 0;
+    position: absolute;
+    font-size: 2.6vw;
+    padding: 1.527vw;
+    display: flex;
+    justify-content: center;
+  }
+
+  & .etoiles {
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    margin-bottom:  2.29vw;
+    position: relative;
+    flex-grow: 1;
+    width: 5vw;
+    height: 5vw;
+    transition: transform .2s;
+    transition-duration: 0.2s;
+    transition-timing-function: cubic-bezier(0.5, 1.04, 0.88, 0.91);
+    transition-delay: 0s;
+    transition-property: transform;
+    & .test1 {
+      clip-path: polygon(
+                      calc(12vw * var(--multiplier)) calc(2vw * var(--multiplier)),
+                      calc(14.4vw * var(--multiplier)) calc(9vw * var(--multiplier)),
+                      calc(22vw * var(--multiplier)) calc(9vw * var(--multiplier)),
+                      calc(16vw * var(--multiplier)) calc(13.8vw * var(--multiplier)),
+                      calc(18.4vw * var(--multiplier)) calc(20.8vw * var(--multiplier)),
+                      calc(12.4vw * var(--multiplier)) calc(16vw * var(--multiplier)),
+                      calc(6.4vw * var(--multiplier)) calc(20.8vw * var(--multiplier)),
+                      calc(8.8vw * var(--multiplier)) calc(13.8vw * var(--multiplier)),
+                      calc(2.8vw * var(--multiplier)) calc(9vw * var(--multiplier)),
+                      calc(10.4vw * var(--multiplier)) calc(9vw * var(--multiplier))
+      );
+      width: 5vw;
+      height: 5vw;
+      position: absolute;
+      /* top: 0.229vw; */
+      /* left: 0.305vw; */
+      transform: scale(1);
+
+      & .test {
+        background-color: #fad93b;
+        width: 5vw;
+        height: 5vw;
+        position: absolute;
+        transform: scaleX(0);
+        transform-origin: left;
+        transition: transform .7s cubic-bezier(0.92, -0.21, 1, 0.96);
+      }
+    }
+    & img {
+      position: relative;
+      width: 5vw;
+      height: 5vw;
+      z-index: 1;
+
+    }
+
+  }
+
+}
+
+#critère1 .etoiles.active .test1 .test{
+  transform: scaleX(1);
+}
+
+
